@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finca La Sofía - Huevos Frescos de Pastoreo</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        finca: {
+                            green: '#2e7d32',
+                            darkGreen: '#1b5e20',
+                            lightGreen: '#e8f5e9',
+                            soil: '#6d4c41',
+                            amber: '#f59e0b',
+                            cream: '#fdfbf7'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fdfbf7;
+        }
+        .thumb-active {
+            border-color: #2e7d32 !important;
+            ring: 3px !important;
+            ring-color: rgba(46, 125, 50, 0.3) !important;
+            opacity: 1 !important;
+        }
+        .ig-gradient {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- HEADER -->
+    <header class="bg-white border-b border-amber-100/60 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
+            
+            <!-- Logo & Brand Name -->
+            <a href="#" class="flex items-center gap-3 group">
+                <!-- SVG Logo Finca La Sofía: Circular emblem (Sprout green top, Blue water middle, Soil brown bottom) -->
+                <div class="relative w-12 h-12 rounded-full overflow-hidden shadow-md flex-shrink-0 transition-transform group-hover:scale-105 border-2 border-amber-200">
+                    <svg viewBox="0 0 100 100" class="w-full h-full">
+                        <!-- Top Green Arc (Naturaleza/Planta) -->
+                        <path d="M 50 0 A 50 50 0 0 1 100 50 L 0 50 A 50 50 0 0 1 50 0 Z" fill="#2e7d32" />
+                        <!-- Middle Blue Stripe (Agua/Pureza) -->
+                        <rect x="0" y="44" width="100" height="20" fill="#38bdf8" />
+                        <!-- Bottom Brown Arc (Tierra/Finca) -->
+                        <path d="M 0 50 A 50 50 0 0 0 100 50 Z" fill="#6d4c41" />
+                        <!-- Inner Sprout Icon -->
+                        <path d="M 50 35 C 40 20 25 30 35 45 C 45 40 48 38 50 35 Z" fill="#a7f3d0" />
+                        <path d="M 50 35 C 60 20 75 30 65 45 C 55 40 52 38 50 35 Z" fill="#86efac" />
+                        <!-- Inner Circle Border -->
+                        <circle cx="50" cy="50" r="47" stroke="#ffffff" stroke-width="2.5" fill="none"/>
+                    </svg>
+                </div>
+                
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight text-emerald-950 leading-none">
+                        FINCA LA SOFÍA
+                    </h1>
+                    <span class="text-[11px] font-semibold text-emerald-700 tracking-wider uppercase block mt-1">
+                        Desde 2022 &bull; Granja Ecológica
+                    </span>
+                </div>
+            </a>
+
+            <!-- Instagram Button Link -->
+            <a href="https://instagram.com/finca_la_sofia" target="_blank" rel="noopener noreferrer" 
+               class="ig-gradient text-white font-medium text-xs sm:text-sm px-3.5 py-2 rounded-xl shadow-md hover:shadow-lg hover:opacity-95 transition-all duration-200 flex items-center gap-2">
+                <i class="fa-brands fa-instagram text-base"></i>
+                <span class="hidden sm:inline font-semibold">@finca_la_sofia</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- MAIN PRODUCT SECTION -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex-grow">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            
+            <!-- LEFT COLUMN: PHOTO GALLERY -->
+            <section class="lg:col-span-6 space-y-4">
+                <!-- Large Featured Image -->
+                <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-amber-50 shadow-lg border border-amber-100/80 group">
+                    <img id="mainImg" 
+                         src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=1000&q=80" 
+                         alt="Gallina ponedora de pastoreo en Finca La Sofía" 
+                         class="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
+                         onerror="this.src='https://placehold.co/800x600/2e7d32/ffffff?text=Gallina+de+Pastoreo'">
+                    
+                    <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-md text-emerald-900 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1.5 border border-white">
+                        <i class="fa-solid fa-feather-pointed text-amber-500"></i> Pastoreo Real
+                    </span>
+                </div>
+
+                <!-- 3 Thumbnails Row (NO PIGS - Gallinas y Huevos únicamente) -->
+                <div class="grid grid-cols-3 gap-3 sm:gap-4">
+                    <!-- Thumbnail 1: Gallina ponedora -->
+                    <button type="button" onclick="changeImage(this, 'https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=1000&q=80')" 
+                            class="thumb-btn thumb-active relative aspect-[4/3] rounded-xl overflow-hidden border-2 border-transparent transition-all duration-200 focus:outline-none opacity-80 hover:opacity-100 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=300&q=80" 
+                             alt="Gallina Ponedora Roja" 
+                             class="w-full h-full object-cover"
+                             onerror="this.src='https://placehold.co/300x200/2e7d32/ffffff?text=Gallina'">
+                    </button>
+
+                    <!-- Thumbnail 2: Grupo de gallinas en pastura (REEMPLAZÓ AL PUERCO) -->
+                    <button type="button" onclick="changeImage(this, 'https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=1000&q=80')" 
+                            class="thumb-btn relative aspect-[4/3] rounded-xl overflow-hidden border-2 border-transparent transition-all duration-200 focus:outline-none opacity-80 hover:opacity-100 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=300&q=80" 
+                             alt="Gallinas al aire libre en el pasto" 
+                             class="w-full h-full object-cover"
+                             onerror="this.src='https://placehold.co/300x200/2e7d32/ffffff?text=Pastoreo'">
+                    </button>
+
+                    <!-- Thumbnail 3: Canasta de Huevos Frescos -->
+                    <button type="button" onclick="changeImage(this, 'https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=1000&q=80')" 
+                            class="thumb-btn relative aspect-[4/3] rounded-xl overflow-hidden border-2 border-transparent transition-all duration-200 focus:outline-none opacity-80 hover:opacity-100 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=300&q=80" 
+                             alt="Huevos frescos de campo" 
+                             class="w-full h-full object-cover"
+                             onerror="this.src='https://placehold.co/300x200/2e7d32/ffffff?text=Huevos+Frescos'">
+                    </button>
+                </div>
+            </section>
+
+            <!-- RIGHT COLUMN: PURCHASE DETAILS & OPTIONS -->
+            <section class="lg:col-span-6 bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-amber-100 space-y-6">
+                
+                <!-- Badge Tag -->
+                <div class="flex items-center gap-2">
+                    <span class="inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                        <i class="fa-solid fa-check text-xs"></i> 100% Libres de Jaula
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                        <i class="fa-solid fa-sun text-xs"></i> Sol & Campo
+                    </span>
+                </div>
+
+                <!-- Main Title & Description -->
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
+                        Huevos Frescos de Pastoreo
+                    </h2>
+                    <p class="mt-2 text-sm sm:text-base text-gray-600 leading-relaxed">
+                        Producidos por gallinas felices criadas libremente en praderas, alimentadas de forma natural. Ricos en nutrientes, con yemas doradas e intensas, directo de <strong>Finca La Sofía</strong> a tu mesa.
+                    </p>
+                </div>
+
+                <hr class="border-gray-100">
+
+                <!-- Presentation Selector (Radio Options) -->
+                <div class="space-y-3">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-500">
+                        Selecciona la Presentación:
+                    </label>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        
+                        <!-- Option 1: 1 Docena -->
+                        <label class="option-card relative flex flex-col justify-between p-4 rounded-2xl border-2 border-emerald-600 bg-emerald-50/50 cursor-pointer transition-all duration-200 hover:border-emerald-500">
+                            <input type="radio" name="presentation" value="docena" data-price="2.50" data-label="1 Docena (12 uds)" checked class="sr-only" onchange="updateSelection(this)">
+                            <div>
+                                <span class="block font-bold text-gray-900 text-sm">1 Docena</span>
+                                <span class="text-xs text-gray-500 font-medium">12 Unidades</span>
+                            </div>
+                            <div class="mt-3 text-emerald-800 font-extrabold text-lg">
+                                $2.50 <span class="text-xs font-normal text-gray-500">USD</span>
+                            </div>
+                        </label>
+
+                        <!-- Option 2: 24 Unidades -->
+                        <label class="option-card relative flex flex-col justify-between p-4 rounded-2xl border-2 border-gray-200 bg-white cursor-pointer transition-all duration-200 hover:border-emerald-300">
+                            <input type="radio" name="presentation" value="24pack" data-price="5.00" data-label="24 Unidades" class="sr-only" onchange="updateSelection(this)">
+                            <div>
+                                <span class="block font-bold text-gray-900 text-sm">Cartón de 24</span>
+                                <span class="text-xs text-gray-500 font-medium">24 Unidades</span>
+                            </div>
+                            <div class="mt-3 text-emerald-800 font-extrabold text-lg">
+                                $5.00 <span class="text-xs font-normal text-gray-500">USD</span>
+                            </div>
+                        </label>
+
+                        <!-- Option 3: 30 Unidades -->
+                        <label class="option-card relative flex flex-col justify-between p-4 rounded-2xl border-2 border-gray-200 bg-white cursor-pointer transition-all duration-200 hover:border-emerald-300">
+                            <input type="radio" name="presentation" value="30pack" data-price="6.50" data-label="30 Unidades" class="sr-only" onchange="updateSelection(this)">
+                            <div>
+                                <span class="block font-bold text-gray-900 text-sm">Cartón de 30</span>
+                                <span class="text-xs text-gray-500 font-medium">30 Unidades</span>
+                            </div>
+                            <div class="mt-3 text-emerald-800 font-extrabold text-lg">
+                                $6.50 <span class="text-xs font-normal text-gray-500">USD</span>
+                            </div>
+                        </label>
+
+                    </div>
+                </div>
+
+                <!-- Quantity & Price Summary -->
+                <div class="flex items-center justify-between p-4 bg-amber-50/60 rounded-2xl border border-amber-100">
+                    <div>
+                        <span class="block text-xs font-bold text-amber-900 uppercase">Cantidad</span>
+                        <!-- Increment / Decrement controls -->
+                        <div class="flex items-center gap-3 mt-1.5">
+                            <button type="button" onclick="adjustQty(-1)" class="w-9 h-9 rounded-xl bg-white border border-gray-200 font-bold text-gray-700 hover:bg-emerald-600 hover:text-white hover:border-emerald-600 transition-colors shadow-sm flex items-center justify-center text-lg">-</button>
+                            <span id="qtyDisplay" class="font-extrabold text-lg w-6 text-center text-gray-900">1</span>
+                            <button type="button" onclick="adjustQty(1)" class="w-9 h-9 rounded-xl bg-white border border-gray-200 font-bold text-gray-700 hover:bg-emerald-600 hover:text-white hover:border-emerald-600 transition-colors shadow-sm flex items-center justify-center text-lg">+</button>
+                        </div>
+                    </div>
+
+                    <div class="text-right">
+                        <span class="block text-xs font-bold text-amber-900 uppercase">Total a pagar</span>
+                        <div class="text-2xl sm:text-3xl font-extrabold text-emerald-900 mt-1">
+                            $<span id="totalPrice">2.50</span> <span class="text-xs font-semibold text-gray-500">USD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WhatsApp Action Button -->
+                <div>
+                    <a id="whatsappBtn" href="#" target="_blank" 
+                       class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-base sm:text-lg py-4 px-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-3 active:scale-[0.99]">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        <span>Pedir por WhatsApp</span>
+                    </a>
+                    <p class="text-center text-xs text-gray-400 mt-2.5 font-medium flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-shield-halved text-emerald-600"></i> Pedido directo con Finca La Sofía (+507 6997-4704)
+                    </p>
+                </div>
+
+            </section>
+        </div>
+
+        <!-- FEATURES & BENEFITS SECTION -->
+        <section class="mt-16 pt-12 border-t border-amber-200/60">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h3 class="text-xl sm:text-2xl font-bold text-emerald-950">¿Por qué elegir los huevos de Finca La Sofía?</h3>
+                <p class="text-xs sm:text-sm text-gray-600 mt-1">Calidad superior garantizada por nuestro modelo de crianza sostenible</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                
+                <!-- Benefit 1 -->
+                <div class="bg-white p-5 rounded-2xl border border-amber-100 shadow-sm text-center space-y-2">
+                    <div class="w-12 h-12 mx-auto rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-sm sm:text-base">100% Pastoreo</h4>
+                    <p class="text-xs text-gray-500">Libres en praderas verdes todos los días.</p>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="bg-white p-5 rounded-2xl border border-amber-100 shadow-sm text-center space-y-2">
+                    <div class="w-12 h-12 mx-auto rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-ban-smoking"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-sm sm:text-base">Sin Antibióticos</h4>
+                    <p class="text-xs text-gray-500">Alimentación natural libre de químicos.</p>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="bg-white p-5 rounded-2xl border border-amber-100 shadow-sm text-center space-y-2">
+                    <div class="w-12 h-12 mx-auto rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-egg"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-sm sm:text-base">Yemas Doradas</h4>
+                    <p class="text-xs text-gray-500">Sabor intenso y alto valor nutricional.</p>
+                </div>
+
+                <!-- Benefit 4 -->
+                <div class="bg-white p-5 rounded-2xl border border-amber-100 shadow-sm text-center space-y-2">
+                    <div class="w-12 h-12 mx-auto rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-sm sm:text-base">Entrega Fresca</h4>
+                    <p class="text-xs text-gray-500">Directo del nido a tu domicilio local.</p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-emerald-950 text-white py-8 mt-16 border-t border-emerald-900">
+        <div class="max-w-6xl mx-auto px-4 text-center space-y-3">
+            <p class="font-bold tracking-wide text-sm">FINCA LA SOFÍA &bull; HUEVOS FRESCOS DE PASTOREO</p>
+            <p class="text-xs text-emerald-300">Panamá &bull; Contacto WhatsApp: +507 6997-4704</p>
+            <p class="text-[11px] text-emerald-500/80">&copy; 2026 Finca La Sofía. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        let currentPriceUnit = 2.50;
+        let currentLabel = '1 Docena (12 uds)';
+        let quantity = 1;
+        const phone = '50769974704';
+
+        // Change gallery image when clicking thumbnails
+        function changeImage(btn, src) {
+            document.getElementById('mainImg').src = src;
+            document.querySelectorAll('.thumb-btn').forEach(el => {
+                el.classList.remove('thumb-active');
+                el.classList.add('border-transparent');
+            });
+            btn.classList.add('thumb-active');
+            btn.classList.remove('border-transparent');
+        }
+
+        // Update presentation selection
+        function updateSelection(radio) {
+            // Update styling on radio labels
+            document.querySelectorAll('.option-card').forEach(card => {
+                card.classList.remove('border-emerald-600', 'bg-emerald-50/50');
+                card.classList.add('border-gray-200', 'bg-white');
+            });
+
+            const parentLabel = radio.closest('.option-card');
+            parentLabel.classList.remove('border-gray-200', 'bg-white');
+            parentLabel.classList.add('border-emerald-600', 'bg-emerald-50/50');
+
+            // Update variables
+            currentPriceUnit = parseFloat(radio.dataset.price);
+            currentLabel = radio.dataset.label;
+            
+            calculateTotal();
+        }
+
+        // Adjust Quantity
+        function adjustQty(delta) {
+            if (quantity + delta >= 1) {
+                quantity += delta;
+                document.getElementById('qtyDisplay').innerText = quantity;
+                calculateTotal();
+            }
+        }
+
+        // Calculate total and update WhatsApp link
+        function calculateTotal() {
+            const total = (currentPriceUnit * quantity).toFixed(2);
+            document.getElementById('totalPrice').innerText = total;
+
+            // Build dynamic WhatsApp link text
+            const message = `Hola Finca La Sofía! 👋 Quisiera realizar un pedido:\n\n` +
+                            `• Producto: Huevos Frescos de Pastoreo\n` +
+                            `• Presentación: ${currentLabel}\n` +
+                            `• Cantidad: ${quantity} paquete(s)\n` +
+                            `• Total a pagar: $${total} USD\n\n` +
+                            `¿Tienen disponibilidad para entrega?`;
+
+            const encodedMessage = encodeURIComponent(message);
+            document.getElementById('whatsappBtn').href = `https://wa.me/${phone}?text=${encodedMessage}`;
+        }
+
+        // Initialize on page load
+        window.onload = function() {
+            calculateTotal();
+        }
+    </script>
+</body>
+</html>
